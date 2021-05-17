@@ -34,7 +34,7 @@ composer install
 | |____UserModel.php        用户dao层（存储、基础组件、调用外部API等）
 |____library                公共库目录
 | |____error                全局错误定义
-| |____response             Reponse Helper
+| |____response             Response Helper
 | |____transfer             数据传输helper（dto->do,do->dto）
 |____TP框架相关目录、文件
 ```
