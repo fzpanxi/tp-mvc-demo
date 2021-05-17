@@ -31,7 +31,7 @@ composer install
 |____dao                    dao层目录
 | |____UserDao.php          用户dao层（存储、基础组件、调用外部API等）
 |____model                  model层目录
-| |____UserModel.php        用户dao层（存储、基础组件、调用外部API等）
+| |____UserModel.php        用户model
 |____library                公共库目录
 | |____error                全局错误定义
 | |____response             Response Helper
