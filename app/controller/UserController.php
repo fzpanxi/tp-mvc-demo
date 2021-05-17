@@ -6,7 +6,6 @@ use app\BaseController;
 use app\controller\request\user\GetUserRequest;
 use app\controller\validate\UserValidate;
 use app\library\error\InvalidArgument;
-use app\library\request\ApiRequest;
 use app\library\response\ApiResponse;
 use app\library\transfer\Transfer;
 use app\service\UserService;
@@ -38,7 +37,7 @@ class UserController extends BaseController
                 ->scene('getUser')
                 ->check($request->param());
             //dto
-            $requestData = Transfer::DataToObject($request->param(),GetUserRequest::class);
+            $requestData = Transfer::DataToObject($request->param(), GetUserRequest::class);
             return ApiResponse::handle($this->userService->getUser($requestData));
         } catch (ValidateException $e) {
             return ApiResponse::handle(new InvalidArgument($e->getMessage(), $e->getError()));
