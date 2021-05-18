@@ -3,13 +3,13 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Exclude;
 
 class InvalidArgument extends Error
 {
     private $code = 3;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude()
      */
     private $http = 400;
     private $status = 'INVALID_ARGUMENT';

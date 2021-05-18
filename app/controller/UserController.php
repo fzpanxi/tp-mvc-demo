@@ -3,6 +3,7 @@
 namespace app\controller;
 
 use app\BaseController;
+use app\controller\request\user\Author;
 use app\controller\request\user\GetUserRequest;
 use app\controller\validate\UserValidate;
 use app\library\error\InvalidArgument;
@@ -36,9 +37,9 @@ class UserController extends BaseController
                 ->batch(true)
                 ->scene('getUser')
                 ->check($request->param());
-            //dto
-            $requestData = Transfer::DataToObject($request->param(), GetUserRequest::class);
-            return ApiResponse::handle($this->userService->getUser($requestData));
+            //request data to object
+            $req = Transfer::DataToObject($request->param(), GetUserRequest::class);
+            return ApiResponse::handle($this->userService->getUser($req));
         } catch (ValidateException $e) {
             return ApiResponse::handle(new InvalidArgument($e->getMessage(), $e->getError()));
         }

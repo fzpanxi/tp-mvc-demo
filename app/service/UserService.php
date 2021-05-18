@@ -20,13 +20,13 @@ class UserService
     }
 
     /**
-     * @param GetUserRequest $request
+     * @param GetUserRequest $req
      * @return NotFound|object
      */
-    public function getUser(GetUserRequest $request) : object
+    public function getUser(GetUserRequest $req) : object
     {
         //business logic
-        $userID = $request->getUserID();
+        $userID = $req->getUserID();
         if (!$user = $this->userDao->getUserByCache($userID)) {
             if(!$user = $this->userDao->getUser($userID)) {
                 return new NotFound('user not found');
@@ -34,7 +34,7 @@ class UserService
                 //TODO create cache
             }
         }
-        $user['user_id'] = $user['id'] ?? 0;
+
         return Transfer::DataToObject($user, GetUserResponse::class);
     }
 }

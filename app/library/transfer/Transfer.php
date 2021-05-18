@@ -4,7 +4,7 @@
 namespace app\library\transfer;
 
 
-use Tebru\Gson\Gson;
+use JMS\Serializer\SerializerBuilder;
 
 class Transfer
 {
@@ -13,10 +13,10 @@ class Transfer
      * @param $serializedClass
      * @return object
      */
-    public static function DataToObject(array $data, $serializedClass) : object
+    public static function DataToObject(array $data, $serializedClass): object
     {
-        $jsonBuilder = Gson::builder()->build();
-        return $jsonBuilder->fromNormalized($data, $serializedClass);
+        $serializerBuilder = SerializerBuilder::create()->build();
+        return $serializerBuilder->fromArray($data, $serializedClass);
     }
 
 }

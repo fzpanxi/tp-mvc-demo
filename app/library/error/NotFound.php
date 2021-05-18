@@ -3,13 +3,15 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Exclude;
+
 
 class NotFound extends Error
 {
     private $code = 5;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude
      */
     private $http = 404;
     private $status = 'NOT_FOUND';

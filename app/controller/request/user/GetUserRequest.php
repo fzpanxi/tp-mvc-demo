@@ -3,13 +3,13 @@
 
 namespace app\controller\request\user;
 
-use Tebru\Gson\Annotation as Gson;
-use Tebru\Gson\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
 
 class GetUserRequest
 {
     /**
-     * @Gson\Type("int")
+     * @Type("int")
      * @SerializedName("user_id")
      */
     private $userID;
@@ -17,7 +17,7 @@ class GetUserRequest
     /**
      * @return mixed
      */
-    public function getUserID()
+    public function getUserID() : int
     {
         return $this->userID;
     }
@@ -25,7 +25,7 @@ class GetUserRequest
     /**
      * @param mixed $userID
      */
-    public function setUserID($userID): void
+    public function setUserID(int $userID): void
     {
         $this->userID = $userID;
     }

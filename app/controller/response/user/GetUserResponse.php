@@ -1,47 +1,57 @@
 <?php
 
-
 namespace app\controller\response\user;
-use Tebru\Gson\Annotation as Gson;
-use Tebru\Gson\Annotation\SerializedName;
+
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\VirtualProperty;
 
 class GetUserResponse
 {
     /**
-     * @Gson\Type("int")
-     * @SerializedName("user_id")
+     * @Type("int")
      */
-    private $userId;
-    private $mobile;
-    private $nickname;
-    private $avatar;
+    private $id;
+    /**
+     * @Type("string")
+     */
+    private $mobile = '';
+    /**
+     * @Type("string")
+     */
+    private $nickname = '';
+    /**
+     * @Type("string")
+     */
+    private $avatar = '';
 
     /**
      * @return mixed
      */
-    public function getUserId()
+    public function getId()
     {
-        return $this->userId;
+        return $this->id;
     }
 
     /**
-     * @param mixed $userId
+     * @param mixed $id
      */
-    public function setUserId($userId): void
+    public function setId($id): void
     {
-        $this->userId = $userId;
+        $this->id = $id;
     }
 
+
     /**
-     * @return mixed
+     * @return string
      */
-    public function getMobile() : string
+    public function getMobile(): string
     {
         return $this->mobile;
     }
 
     /**
-     * @param mixed $mobile
+     * @param string $mobile
      */
     public function setMobile(string $mobile): void
     {
@@ -49,34 +59,36 @@ class GetUserResponse
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getNickname() : string
+    public function getNickname(): string
     {
         return $this->nickname;
     }
 
     /**
-     * @param mixed $nickname
+     * @param string $nickname
      */
-    public function setNickname($nickname): void
+    public function setNickname(string $nickname): void
     {
         $this->nickname = $nickname;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getAvatar() : string
+    public function getAvatar(): string
     {
         return $this->avatar;
     }
 
     /**
-     * @param mixed $avatar
+     * @param string $avatar
      */
-    public function setAvatar($avatar): void
+    public function setAvatar(string $avatar): void
     {
         $this->avatar = $avatar;
     }
+
+
 }

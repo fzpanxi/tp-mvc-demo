@@ -5,7 +5,7 @@ namespace app\library\response;
 
 
 use app\library\error\Error;
-use Tebru\Gson\Gson;
+use JMS\Serializer\SerializerBuilder;
 use think\response\Json;
 
 class ApiResponse
@@ -27,19 +27,19 @@ class ApiResponse
      */
     private static function success(object $data) : Json
     {
-        $jsonBuilder = Gson::builder()->build();
-        return json($jsonBuilder->toNormalized($data), 200);
+        $serializerBuilder = SerializerBuilder::create()->build();
+        return json($serializerBuilder->toArray($data), 200);
     }
 
     /**
      * 错误输出
-     * @param object $error
+     * @param mixed $error
      * @return Json
      */
     private static function error(object $error) : Json
     {
-        $jsonBuilder = Gson::builder()->build();
-        return json($jsonBuilder->toNormalized($error), $error->getHttp());
+        $serializerBuilder = SerializerBuilder::create()->build();
+        return json($serializerBuilder->toArray($error), $error->getHttp());
     }
 
 }

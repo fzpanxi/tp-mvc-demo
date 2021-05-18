@@ -3,13 +3,15 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Exclude;
+
 
 class ResourceExhausted extends Error
 {
     private $code = 8;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude
      */
     private $http = 429;
     private $status = 'RESOURCE_EXHAUSTED';

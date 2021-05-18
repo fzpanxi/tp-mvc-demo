@@ -3,13 +3,14 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Exclude;
 
 class Internal extends Error
 {
     private $code = 13;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude
      */
     private $http = 500;
     private $status = 'INTERNAL';

@@ -3,13 +3,15 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Exclude;
+
 
 class Unavailable extends Error
 {
     private $code = 14;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude
      */
     private $http = 503;
     private $status = 'UNAVAILABLE';

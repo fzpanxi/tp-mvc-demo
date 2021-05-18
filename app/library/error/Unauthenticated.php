@@ -3,13 +3,15 @@
 
 namespace app\library\error;
 
-use Tebru\Gson\Annotation\Exclude;
+use JMS\Serializer\Annotation\Type;
+use JMS\Serializer\Annotation\Exclude;
+
 
 class Unauthenticated extends Error
 {
     private $code = 16;
     /**
-     * @Exclude(deserialize=false)
+     * @Exclude
      */
     private $http = 401;
     private $status = 'UNAUTHORIZED';
